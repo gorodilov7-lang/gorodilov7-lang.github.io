@@ -636,7 +636,7 @@ a {
 }
 
 /* =========================================
-   7. Gallery - ГЛАВНОЕ ИСПРАВЛЕНИЕ
+   7. Gallery
    ========================================= */
 .gallery {
   background: var(--bg);
@@ -708,6 +708,49 @@ a {
 }
 
 .gitem:hover img { transform: scale(1.05); }
+
+/* Кнопка на элементе галереи */
+.gitem-button {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 107, 53, 0.9);
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.3s ease;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gitem:hover .gitem-button,
+.gitem:focus-within .gitem-button {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.gitem-button:hover {
+  background: var(--primary);
+  transform: scale(1.1);
+}
+
+.gitem-button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.gitem:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
 
 /* =========================================
    8. Process & Reviews
@@ -1191,6 +1234,22 @@ a {
   transform: translateY(0);
 }
 
+/* Уважение системных настроек */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 /* =========================================
    15. Адаптив
    ========================================= */
@@ -1274,65 +1333,4 @@ a {
   .review-card { padding: 20px; }
   .process-step { padding: 24px 16px; }
   .contact-link { padding: 14px 16px; }
-}
-/* Добавьте в конец main.css */
-
-/* Кнопка на элементе галереи (доступность) */
-.gitem-button {
-  position: absolute;
-  bottom: 12px;
-  right: 12px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(255, 107, 53, 0.9);
-  color: #fff;
-  font-size: 1.1rem;
-  cursor: pointer;
-  opacity: 0;
-  transform: scale(0.8);
-  transition: all 0.3s ease;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.gitem:hover .gitem-button,
-.gitem:focus-within .gitem-button {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.gitem-button:hover {
-  background: var(--primary);
-  transform: scale(1.1);
-}
-
-.gitem-button:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
-}
-
-/* Фокус на элементе галереи */
-.gitem:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
-}
-
-/* Уважение системных настроек */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-  
-  .fade-up {
-    opacity: 1 !important;
-    transform: none !important;
-  }
 }

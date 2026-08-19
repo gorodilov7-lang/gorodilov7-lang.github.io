@@ -73,18 +73,16 @@
       { id: 'IMG_12', category: 'embroidery', title: 'Картина вышивка' }
     ];
 
-    // Очищаем
     galleryGrid.innerHTML = '';
 
-    // Создаем элементы
     photoList.forEach(function(photo) {
       var item = document.createElement('div');
       item.className = 'gitem';
       item.setAttribute('data-category', photo.category);
       item.setAttribute('data-title', photo.title);
       item.setAttribute('role', 'listitem');
+      item.setAttribute('tabindex', '0');
 
-      // picture для WebP + JPG
       var picture = document.createElement('picture');
       
       var sourceWebp = document.createElement('source');
@@ -101,12 +99,10 @@
       img.loading = 'lazy';
       img.decoding = 'async';
       
-      // Заглушка если фото нет
       img.onerror = function() {
         this.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300"%3E%3Crect width="400" height="300" fill="%23F8F5F2"/%3E%3Ctext x="50%25" y="45%25" font-family="Space Grotesk" font-size="24" fill="%23FF6B35" text-anchor="middle"%3ESilkSoul%3C/text%3E%3Ctext x="50%25" y="65%25" font-family="Outfit" font-size="14" fill="%236B5F55" text-anchor="middle"%3E' + photo.title + '%3C/text%3E%3C/svg%3E';
       };
 
-      // Кнопка для открытия (доступность)
       var button = document.createElement('button');
       button.className = 'gitem-button';
       button.setAttribute('aria-label', 'Открыть ' + photo.title);
@@ -149,7 +145,6 @@
       lightbox.hidden = false;
       lightbox.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
-      // Фокус на крестик
       if (closeBtn) setTimeout(function() { closeBtn.focus(); }, 100);
     }
 
@@ -165,7 +160,6 @@
       }, 300);
     }
 
-    // Клик по фото или кнопке
     galleryGrid.addEventListener('click', function(e) {
       var item = e.target.closest('.gitem');
       if (item) {
@@ -175,7 +169,6 @@
       }
     });
 
-    // Клавиатура: Enter на элементе галереи
     galleryGrid.addEventListener('keydown', function(e) {
       if (e.key === 'Enter') {
         var item = e.target.closest('.gitem');
@@ -188,7 +181,6 @@
       }
     });
 
-    // Закрытие лайтбокса
     if (closeBtn) {
       closeBtn.addEventListener('click', closeLightbox);
     }
@@ -202,15 +194,10 @@
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape' && lightbox && !lightbox.hidden) {
         closeLightbox();
-        // Возвращаем фокус
-        var activeItem = document.activeElement;
-        if (activeItem && activeItem.closest('.gitem')) {
-          // OK
-        }
       }
     });
 
-    // --- Анимация при скролле (с уважением к настройкам) ---
+    // --- Анимация ---
     if (shouldAnimate) {
       var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
@@ -230,16 +217,14 @@
         observer.observe(el);
       });
     } else {
-      // Если анимация отключена - сразу показываем
       document.querySelectorAll('.fade-up').forEach(function(el) {
         el.classList.add('visible');
       });
     }
   }
 
-  // --- 5. Форма (безопасность) ---
+  // --- 5. Форма ---
   if (contactForm) {
-    // Защита от спама через honeypot
     var honeypot = contactForm.querySelector('input[name="bot-field"]');
     if (honeypot) {
       contactForm.addEventListener('submit', function(e) {
@@ -250,7 +235,6 @@
       });
     }
 
-    // Если форма не на Netlify - локальная обработка
     if (!contactForm.hasAttribute('data-netlify')) {
       contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -260,7 +244,6 @@
         btn.disabled = true;
         btn.style.opacity = '0.7';
 
-        // Валидация перед отправкой
         var name = contactForm.querySelector('input[name="name"]');
         var contact = contactForm.querySelector('input[name="contact"]');
         var consent = contactForm.querySelector('input[name="consent"]');
@@ -284,16 +267,15 @@
     }
   }
 
-  // --- 6. Защита: санитизация введенных данных ---
+  // --- 6. Защита ---
   function sanitizeInput(value) {
     var div = document.createElement('div');
     div.textContent = value;
     return div.innerHTML;
   }
 
-  // Применяем санитизацию к полям формы при отправке
   if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', function() {
       var inputs = contactForm.querySelectorAll('input, textarea');
       inputs.forEach(function(input) {
         if (input.type !== 'checkbox' && input.type !== 'radio') {
@@ -303,7 +285,6 @@
     });
   }
 
-  // --- 7. Защита от XSS через URL параметры ---
   (function sanitizeUrlParams() {
     var url = new URL(window.location.href);
     var params = url.searchParams;
