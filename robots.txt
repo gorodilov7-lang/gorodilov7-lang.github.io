@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tihaya-pava.netlify.app/sitemap.xml
