@@ -86,15 +86,15 @@
       var picture = document.createElement('picture');
       
       var sourceWebp = document.createElement('source');
-      sourceWebp.srcset = '/assets/img/works/' + photo.id + '.webp';
+      sourceWebp.srcset = 'assets/img/works/' + photo.id + '.webp';
       sourceWebp.type = 'image/webp';
       
       var sourceJpg = document.createElement('source');
-      sourceJpg.srcset = '/assets/img/works/' + photo.id + '.jpg';
+      sourceJpg.srcset = 'assets/img/works/' + photo.id + '.jpg';
       sourceJpg.type = 'image/jpeg';
 
       var img = document.createElement('img');
-      img.src = '/assets/img/works/' + photo.id + '.jpg';
+      img.src = 'assets/img/works/' + photo.id + '.jpg';
       img.alt = photo.title;
       img.loading = 'lazy';
       img.decoding = 'async';
