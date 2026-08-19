@@ -1,66 +1,83 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
-  <title>Ручное макраме и вышивка из Красноярска — на заказ</title>
-  <meta name="description" content="Авторское макраме, плетёные качели и вышивка ручной работы из Красноярска. Создаю уютные вещи, которые живут в вашем доме годами. Изготовление на заказ 5–14 дней, доставка по России.">
+  <meta charset="UTF-8" />
+  <base href="/Site.html/">
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  
+  <title>SilkSoul — Авторское макраме и вышивка</title>
+  <meta name="description" content="SilkSoul: Авторское макраме, плетёные качели и вышивка ручной работы." />
+  <meta name="robots" content="index, follow" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Ручное макраме и вышивка — на заказ из Красноярска">
-  <meta property="og:description" content="Вещи, которые хочется трогать. Макраме, качели, вышивка — в единственном экземпляре.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://tihaya-pava.netlify.app/">
-  <meta property="og:image" content="https://tihaya-pava.netlify.app/assets/img/og.jpg">
+  <meta property="og:title" content="SilkSoul — Макраме и вышивка на заказ" />
+  <meta property="og:description" content="Вещи, которые хочется трогать. Макраме, качели, вышивка — в единственном экземпляре." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://silksoul.ru/" />
+  <meta property="og:image" content="/assets/img/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
-  <meta name="theme-color" content="#F7F3EE">
-  <link rel="canonical" href="https://tihaya-pava.netlify.app/">
+  <meta name="theme-color" content="#F8F5F2" />
+  
+  <link rel="canonical" href="https://silksoul.ru/" />
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪢</text></svg>">
-  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪢</text></svg>">
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23FF6B35'>S</text></svg>" />
 
-  <!-- Шрифты -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Unbounded:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- Стили -->
-  <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 
 <body>
   <a class="skip-link" href="#content">Перейти к содержанию</a>
 
-  <!-- Навигация -->
-  <header class="header">
+  <header class="header" role="banner">
     <div class="container">
       <nav class="navbar" aria-label="Основная навигация">
-        <a href="/" class="logo">НАЗВАНИЕ<span class="logo-dot">.</span></a>
-        <ul class="nav-links">
-          <li><a href="#catalog">Каталог</a></li>
-          <li><a href="#gallery">Работы</a></li>
-          <li><a href="#process">Процесс</a></li>
-          <li><a href="#contacts">Контакты</a></li>
+        <a href="/" class="logo" aria-label="SilkSoul - главная">
+          <span class="logo-icon" aria-hidden="true">✦</span>
+          SILK<span class="logo-dot">SOUL</span>
+        </a>
+        
+        <button class="burger-menu" aria-label="Открыть меню" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="nav-links" role="menubar">
+          <li role="none"><a href="#catalog" role="menuitem">Каталог</a></li>
+          <li role="none"><a href="#gallery" role="menuitem">Портфолио</a></li>
+          <li role="none"><a href="#process" role="menuitem">Процесс</a></li>
+          <li role="none"><a href="#reviews" role="menuitem">Отзывы</a></li>
+          <li role="none"><a href="#contacts" role="menuitem">Контакты</a></li>
         </ul>
-        <a href="#contacts" class="nav-cta">Заказать</a>
+        <a href="#contacts" class="nav-cta">Связаться</a>
       </nav>
     </div>
   </header>
 
   <main id="content">
     <!-- Hero -->
-    <section class="hero">
-      <div class="hero-pattern" aria-hidden="true"></div>
+    <section class="hero" aria-label="Главный баннер">
+      <div class="hero-glow" aria-hidden="true"></div>
       <div class="container">
         <div class="hero-grid">
           <div class="hero-content">
-            <p class="hero-eyebrow">Ручная работа · Красноярск</p>
-            <h1 class="hero-title">Вещи, которые хочется трогать каждый день</h1>
+            <div class="hero-badge">
+              <span class="badge-dot"></span>
+              Ручная работа · Красноярск
+            </div>
+            <h1 class="hero-title">Текстиль,<br />созданный с <span class="highlight">душой</span></h1>
             <p class="hero-subtitle">
-              Создаю макраме и вышивку, которые не пылятся на полке —
-              они живут в вашем доме, дарят уют и собирают комплименты
-              от гостей.
+              SilkSoul создает макраме и вышивку, которые не пылятся на полке —
+              они живут в вашем доме, дарят уют и собирают комплименты.
             </p>
             <div class="hero-actions">
               <a href="#catalog" class="btn btn-primary">Выбрать изделие</a>
@@ -73,28 +90,29 @@
             </div>
           </div>
           <figure class="hero-media">
-            <img src="/assets/img/works/IMG_04.jpg" alt="Макраме ручной работы для дома" loading="eager" decoding="async">
-            <figcaption class="hero-caption">Подвесное кресло · хлопковый шнур · 2026</figcaption>
+            <picture>
+              <source srcset="/assets/img/works/IMG_04.webp" type="image/webp" />
+              <img src="/assets/img/works/IMG_04.jpg" alt="Подвесное кресло из макраме" loading="eager" decoding="async" width="600" height="460" />
+            </picture>
+            <figcaption class="hero-caption">Подвесное кресло · хлопковый шнур</figcaption>
           </figure>
         </div>
       </div>
     </section>
 
     <!-- О мастере -->
-    <section class="about" id="about">
+    <section class="about" id="about" aria-label="О мастерской">
       <div class="container">
         <div class="about-grid">
           <div class="about-text">
-            <p class="section-eyebrow">Почему выбирают меня</p>
-            <h2 class="section-title">Не масс-маркет, а вещь с характером</h2>
+            <p class="section-eyebrow">О мастерской</p>
+            <h2 class="section-title">Не масс-маркет,<br />а вещь с <span class="highlight">характером</span></h2>
             <p class="about-lead">
-              Каждое изделие создаю лично — от первого узла до финальной
-              упаковки. Никаких посредников и шаблонов.
+              Каждое изделие SilkSoul создается лично — от первого узла до финальной упаковки.
             </p>
             <p class="about-body">
-              Использую только натуральные материалы: хлопковый шнур,
-              льняную канву, мулине DMC. Такие вещи не растягиваются,
-              не выгорают и красиво стареют.
+              Используем только натуральные материалы: хлопковый шнур, льняную канву.
+              Такие вещи не растягиваются и красиво стареют, становясь только лучше со временем.
             </p>
             <div class="about-stats">
               <div class="stat">
@@ -103,7 +121,7 @@
               </div>
               <div class="stat">
                 <span class="stat-number">200+</span>
-                <span class="stat-label">довольных клиентов</span>
+                <span class="stat-label">счастливых клиентов</span>
               </div>
               <div class="stat">
                 <span class="stat-number">5-14</span>
@@ -112,73 +130,79 @@
             </div>
           </div>
           <figure class="about-media">
-            <img src="/assets/img/works/IMG_01.jpg" alt="Процесс создания макраме" loading="lazy" decoding="async">
+            <picture>
+              <source srcset="/assets/img/works/IMG_01.webp" type="image/webp" />
+              <img src="/assets/img/works/IMG_01.jpg" alt="Процесс создания макраме" loading="lazy" decoding="async" width="600" height="400" />
+            </picture>
           </figure>
         </div>
       </div>
     </section>
 
     <!-- Каталог -->
-    <section class="catalog" id="catalog">
+    <section class="catalog" id="catalog" aria-label="Каталог изделий">
       <div class="container">
         <div class="section-header">
-          <p class="section-eyebrow">Каталог</p>
-          <h2 class="section-title">Выберите, что вам ближе</h2>
-          <p class="section-subtitle">Три направления — и каждое можно адаптировать под ваш интерьер</p>
+          <p class="section-eyebrow">Услуги</p>
+          <h2 class="section-title">Выберите, что вам <span class="highlight">ближе</span></h2>
+          <p class="section-subtitle">Каждое изделие создается в единственном экземпляре с учетом ваших пожеланий</p>
         </div>
 
         <div class="cards">
           <article class="card">
             <div class="card-image">
-              <img src="/assets/img/works/IMG_05.jpg" alt="Подвесные качели макраме" loading="lazy" decoding="async">
+              <picture>
+                <source srcset="/assets/img/works/IMG_05.webp" type="image/webp" />
+                <img src="/assets/img/works/IMG_05.jpg" alt="Парящие качели из макраме" loading="lazy" decoding="async" width="400" height="260" />
+              </picture>
+              <div class="card-badge">🔥 Хит</div>
             </div>
             <div class="card-body">
               <h3 class="card-title">Парящие качели</h3>
-              <p class="card-text">
-                Любимое место для чтения, отдыха и дневного сна.
-                Выдерживают до 120 кг, крепятся к потолку или балке.
-              </p>
+              <p class="card-text">Любимое место для чтения и отдыха. Выдерживают до 120 кг.</p>
               <div class="card-meta">
                 <span class="badge">7–14 дней</span>
                 <span class="price">от 7 000 ₽</span>
               </div>
-              <a href="#contacts" class="card-link">Хочу такие →</a>
+              <a href="#contacts" class="card-link">Заказать →</a>
             </div>
           </article>
 
           <article class="card">
             <div class="card-image">
-              <img src="/assets/img/works/IMG_11.jpg" alt="Панно макраме на стену" loading="lazy" decoding="async">
+              <picture>
+                <source srcset="/assets/img/works/IMG_11.webp" type="image/webp" />
+                <img src="/assets/img/works/IMG_11.jpg" alt="Панно из макраме" loading="lazy" decoding="async" width="400" height="260" />
+              </picture>
+              <div class="card-badge">⭐ Популярное</div>
             </div>
             <div class="card-body">
               <h3 class="card-title">Панно и декор</h3>
-              <p class="card-text">
-                Акцентная стена, тёплый свет и фактура, которую
-                хочется разглядывать. Подбираю размер под ваш интерьер.
-              </p>
+              <p class="card-text">Акцентная стена и фактура, которую хочется разглядывать.</p>
               <div class="card-meta">
                 <span class="badge">5–10 дней</span>
                 <span class="price">от 3 000 ₽</span>
               </div>
-              <a href="#contacts" class="card-link">Подобрать размер →</a>
+              <a href="#contacts" class="card-link">Заказать →</a>
             </div>
           </article>
 
           <article class="card">
             <div class="card-image">
-              <img src="/assets/img/works/IMG_08.jpg" alt="Вышивка гладью" loading="lazy" decoding="async">
+              <picture>
+                <source srcset="/assets/img/works/IMG_08.webp" type="image/webp" />
+                <img src="/assets/img/works/IMG_08.jpg" alt="Вышивка ручной работы" loading="lazy" decoding="async" width="400" height="260" />
+              </picture>
+              <div class="card-badge">✨ Эксклюзив</div>
             </div>
             <div class="card-body">
               <h3 class="card-title">Вышивка</h3>
-              <p class="card-text">
-                Ботанические сюжеты, монограммы, картины для интерьера.
-                Тонкая работа, которая передаётся по наследству.
-              </p>
+              <p class="card-text">Изысканные узоры и дизайны, которые добавляют шарма вашему интерьеру.</p>
               <div class="card-meta">
                 <span class="badge">5–12 дней</span>
                 <span class="price">от 2 500 ₽</span>
               </div>
-              <a href="#contacts" class="card-link">Заказать сюжет →</a>
+              <a href="#contacts" class="card-link">Заказать →</a>
             </div>
           </article>
         </div>
@@ -188,149 +212,174 @@
     <div class="section-divider" aria-hidden="true"></div>
 
     <!-- Галерея -->
-    <section class="gallery" id="gallery">
+    <section class="gallery" id="gallery" aria-label="Портфолио работ">
       <div class="container">
         <div class="section-header">
           <p class="section-eyebrow">Портфолио</p>
-          <h2 class="section-title">Работы, которые уже живут в домах</h2>
+          <h2 class="section-title">Наши <span class="highlight">работы</span></h2>
+          <p class="section-subtitle">Каждое изделие — это история, рассказанная в текстиле</p>
         </div>
 
         <div class="gallery-filters" role="tablist" aria-label="Фильтр работ">
-          <button class="filter-btn active" data-filter="all" aria-selected="true">Все</button>
-          <button class="filter-btn" data-filter="swing" aria-selected="false">Качели</button>
-          <button class="filter-btn" data-filter="macrame" aria-selected="false">Макраме</button>
-          <button class="filter-btn" data-filter="embroidery" aria-selected="false">Вышивка</button>
+          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">Все работы</button>
+          <button class="filter-btn" data-filter="swing" role="tab" aria-selected="false">Качели</button>
+          <button class="filter-btn" data-filter="macrame" role="tab" aria-selected="false">Макраме</button>
+          <button class="filter-btn" data-filter="embroidery" role="tab" aria-selected="false">Вышивка</button>
         </div>
 
         <div class="gallery-grid" id="gallery-grid" role="list">
-          <!-- Заполняется автоматически -->
+          <!-- Галерея заполняется через JavaScript -->
         </div>
       </div>
     </section>
 
     <!-- Процесс -->
-    <section class="process" id="process">
+    <section class="process" id="process" aria-label="Процесс работы">
       <div class="container">
         <div class="section-header">
-          <p class="section-eyebrow">Как это работает</p>
-          <h2 class="section-title">Четыре шага до уюта</h2>
+          <p class="section-eyebrow">Этапы</p>
+          <h2 class="section-title">Как это <span class="highlight">работает</span></h2>
+          <p class="section-subtitle">Прозрачный и понятный процесс создания вашего изделия</p>
         </div>
 
         <div class="process-grid">
           <div class="process-step">
             <span class="step-number">01</span>
-            <h3>Вы пишете мне</h3>
-            <p>Оставьте заявку — я отвечу в течение дня.</p>
+            <div class="step-icon" aria-hidden="true">✉</div>
+            <h3>Заявка</h3>
+            <p>Оставьте заявку — мы ответим в течение дня и обсудим все детали.</p>
           </div>
           <div class="process-step">
             <span class="step-number">02</span>
-            <h3>Согласуем детали</h3>
-            <p>Размер, цвет, материал, бюджет — всё обсудим.</p>
+            <div class="step-icon" aria-hidden="true">✎</div>
+            <h3>Детали</h3>
+            <p>Обсуждаем размер, цветовую гамму, бюджет и сроки.</p>
           </div>
           <div class="process-step">
             <span class="step-number">03</span>
-            <h3>Я создаю изделие</h3>
-            <p>5–14 дней ручной работы. Присылаю фото процесса.</p>
+            <div class="step-icon" aria-hidden="true">✦</div>
+            <h3>Создание</h3>
+            <p>5–14 дней ручной работы. Присылаем фото процесса на каждом этапе.</p>
           </div>
           <div class="process-step">
             <span class="step-number">04</span>
-            <h3>Вы получаете посылку</h3>
-            <p>Отправляю СДЭК или Почтой. Внутри — подарок.</p>
+            <div class="step-icon" aria-hidden="true">📦</div>
+            <h3>Доставка</h3>
+            <p>Отправляем СДЭК или Почтой России с подарком внутри.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Отзывы -->
-    <section class="reviews" id="reviews">
+    <section class="reviews" id="reviews" aria-label="Отзывы клиентов">
       <div class="container">
         <div class="section-header">
           <p class="section-eyebrow">Отзывы</p>
-          <h2 class="section-title">Что говорят клиенты</h2>
+          <h2 class="section-title">Что говорят <span class="highlight">клиенты</span></h2>
+          <p class="section-subtitle">Реальные слова реальных людей о наших работах</p>
         </div>
 
         <div class="reviews-grid">
-          <div class="review-card">
-            <p class="review-text">«Качели для дочки — полный восторг! Плетение ровное, шнур плотный. Доставка в Томск заняла 4 дня».</p>
-            <p class="review-author">Анна · Томск</p>
-          </div>
-          <div class="review-card">
-            <p class="review-text">«Заказывала панно макраме в бежевых тонах. С первого раза угадали и размер, и цвет. Висит над кроватью — не налюбуюсь».</p>
-            <p class="review-author">Мария · Красноярск</p>
-          </div>
-          <div class="review-card">
-            <p class="review-text">«Вышивка с сибирскими травами — как живая. Приятный бонус — сухоцвет в посылке. Такие вещи хочется дарить».</p>
-            <p class="review-author">Елена · Новосибирск</p>
-          </div>
+          <blockquote class="review-card">
+            <div class="review-stars" aria-hidden="true">★★★★★</div>
+            <p class="review-text">«Качели для дочки — полный восторг! Доставка в Томск заняла всего 4 дня. Качество превосходное».</p>
+            <footer class="review-author">
+              <cite>Анна</cite>
+              <span class="review-location">г. Томск</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="review-card">
+            <div class="review-stars" aria-hidden="true">★★★★★</div>
+            <p class="review-text">«Панно висит над кроватью — не налюбуемся. Цвета идеально подошли под наш интерьер».</p>
+            <footer class="review-author">
+              <cite>Мария</cite>
+              <span class="review-location">г. Красноярск</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="review-card">
+            <div class="review-stars" aria-hidden="true">★★★★★</div>
+            <p class="review-text">«Вышивка как живая! Приятный бонус — сухоцвет в посылке. Внимание к деталям поражает».</p>
+            <footer class="review-author">
+              <cite>Елена</cite>
+              <span class="review-location">г. Москва</span>
+            </footer>
+          </blockquote>
         </div>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section class="faq" id="faq">
+    <section class="faq" id="faq" aria-label="Часто задаваемые вопросы">
       <div class="container">
         <div class="section-header">
           <p class="section-eyebrow">FAQ</p>
-          <h2 class="section-title">Частые вопросы</h2>
+          <h2 class="section-title">Частые <span class="highlight">вопросы</span></h2>
         </div>
 
         <div class="faq-list">
           <details>
-            <summary>Как крепить качели?</summary>
-            <p>Нужна надёжная опора: бетонная балка, брус от 10×10 см или металлический каркас. Анкер-болт от 8 мм. Для натяжных потолков крепление не подходит — подскажу альтернативу.</p>
+            <summary>Как крепить качели из макраме?</summary>
+            <p>Для крепления нужна надежная опора: бетонная балка, деревянная перекладина или металлический каркас. Мы прилагаем подробную инструкцию по монтажу.</p>
           </details>
           <details>
-            <summary>Как ухаживать за изделием?</summary>
-            <p>Сухая чистка пылесосом с мягкой насадкой раз в 2–3 недели. При сильных загрязнениях — ручная стирка при 30°C. Изделие не теряет форму и цвет.</p>
-          </details>
-          <details>
-            <summary>Какие материалы используете?</summary>
-            <p>Хлопковый шнур 3–5 мм, мулине DMC, льняная канва. Цвет подбирается индивидуально по вашей палитре.</p>
+            <summary>Как ухаживать за изделием из макраме?</summary>
+            <p>Рекомендуется сухая чистка пылесосом раз в 2–3 недели. При необходимости можно аккуратно постирать вручную.</p>
           </details>
           <details>
             <summary>Нужна ли предоплата?</summary>
-            <p>Да, 30–50% от стоимости. Остаток — после согласования фото готового изделия перед отправкой.</p>
+            <p>Да, требуется предоплата 30–50% от стоимости изделия. Остаток после фото готового изделия.</p>
+          </details>
+          <details>
+            <summary>Можно ли заказать индивидуальный дизайн?</summary>
+            <p>Конечно! Мы создаем изделия по вашим эскизам и пожеланиям. Присылайте референсы.</p>
           </details>
         </div>
       </div>
     </section>
 
     <!-- Контакты -->
-    <section class="contact" id="contacts">
+    <section class="contact" id="contacts" aria-label="Контакты">
       <div class="container">
         <div class="contact-grid">
           <div class="contact-info">
             <p class="section-eyebrow">Контакты</p>
-            <h2 class="section-title">Напишите мне</h2>
+            <h2 class="section-title">Напишите <span class="highlight">нам</span></h2>
             <p class="contact-lead">
-              Расскажите, что хотите заказать — я отвечу в течение дня
-              и сориентирую по срокам и стоимости.
+              Расскажите, что хотите заказать — подберем идеальный вариант и ответим на все вопросы.
             </p>
             <div class="contact-links">
-              <a href="https://t.me/DmitryFoxKids" class="contact-link" target="_blank" rel="noopener">
-                <span class="contact-icon">✈</span>
-                Telegram: @DmitryFoxKids
+              <a href="https://t.me/DmitryFoxKids" class="contact-link" target="_blank" rel="noopener noreferrer">
+                <span class="contact-icon" aria-hidden="true">✈</span>
+                <span>Telegram: <strong>@DmitryFoxKids</strong></span>
               </a>
-              <a href="https://wa.me/79029492730" class="contact-link" target="_blank" rel="noopener">
-                <span class="contact-icon">✆</span>
-                WhatsApp: +7 902 949-27-30
+              <a href="https://wa.me/79029492730" class="contact-link" target="_blank" rel="noopener noreferrer">
+                <span class="contact-icon" aria-hidden="true">✆</span>
+                <span>WhatsApp: <strong>+7 902 949-27-30</strong></span>
               </a>
+            </div>
+            <div class="contact-hours">
+              <span>⏰ Время ответа: до 1 часа в рабочее время</span>
             </div>
           </div>
 
           <form class="contact-form" name="order" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/thank-you/">
-            <input type="hidden" name="form-name" value="order">
-            <p class="sr-only"><label>Не заполняйте: <input name="bot-field"></label></p>
+            <input type="hidden" name="form-name" value="order" />
+            <p class="sr-only"><label>Не заполняйте: <input name="bot-field" tabindex="-1" /></label></p>
 
-            <label class="field">
-              <span class="field-label">Ваше имя</span>
-              <input type="text" name="name" autocomplete="name" required>
-            </label>
+            <div class="form-row">
+              <label class="field">
+                <span class="field-label">Ваше имя</span>
+                <input type="text" name="name" autocomplete="given-name" required placeholder="Иван" maxlength="100" />
+              </label>
 
-            <label class="field">
-              <span class="field-label">Контакт (Telegram или телефон)</span>
-              <input type="text" name="contact" autocomplete="tel" required>
-            </label>
+              <label class="field">
+                <span class="field-label">Контакт</span>
+                <input type="text" name="contact" autocomplete="tel" required placeholder="@username или +7..." maxlength="100" />
+              </label>
+            </div>
 
             <label class="field">
               <span class="field-label">Что хотите заказать</span>
@@ -345,165 +394,72 @@
 
             <label class="field">
               <span class="field-label">Город доставки</span>
-              <input type="text" name="city" autocomplete="address-level2" placeholder="Например: Красноярск">
+              <input type="text" name="city" autocomplete="address-level2" placeholder="Например: Красноярск" maxlength="100" />
             </label>
 
             <label class="field">
               <span class="field-label">Опишите пожелания</span>
-              <textarea name="message" rows="4" placeholder="Размер, цвет, пожелания"></textarea>
+              <textarea name="message" rows="4" placeholder="Размер, цветовая гамма, идеи по дизайну..." maxlength="2000"></textarea>
             </label>
 
             <label class="consent-checkbox">
-              <input type="checkbox" name="consent" value="yes" required>
-              <span>Я согласен(а) с <a href="/privacy/" target="_blank" class="consent-link">политикой конфиденциальности</a> и даю согласие на обработку персональных данных.</span>
+              <input type="checkbox" name="consent" value="yes" required />
+              <span>Я согласен(а) с <a href="/privacy/" target="_blank" class="consent-link">политикой конфиденциальности</a></span>
             </label>
 
-            <button type="submit" class="btn btn-primary btn-full">Отправить заявку</button>
+            <button type="submit" class="btn btn-primary btn-full">
+              <span class="btn-icon" aria-hidden="true">✦</span>
+              Отправить заявку
+            </button>
           </form>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- Кнопка "Наверх" -->
+  <button class="back-to-top" id="backToTop" aria-label="Вернуться наверх" hidden>
+    <span aria-hidden="true">↑</span>
+  </button>
+
   <!-- Футер -->
-  <footer class="footer">
+  <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer-grid">
         <div>
-          <a href="/" class="logo logo-footer">НАЗВАНИЕ<span class="logo-dot">.</span></a>
+          <a href="/" class="logo logo-footer" aria-label="SilkSoul - главная">
+            <span class="logo-icon" aria-hidden="true">✦</span>
+            SILK<span class="logo-dot">SOUL</span>
+          </a>
           <p class="footer-copy">© 2026 · Красноярск</p>
+          <p class="footer-tagline">Создаем текстиль, который вдохновляет</p>
         </div>
         <div class="footer-links">
           <a href="/privacy/" class="footer-doc">Политика конфиденциальности</a>
-          <a href="/consent/" class="footer-doc">Согласие на обработку ПД</a>
+          <a href="#catalog" class="footer-doc">Каталог</a>
+          <a href="#contacts" class="footer-doc">Контакты</a>
         </div>
         <div class="footer-social">
-          <a href="https://t.me/DmitryFoxKids" target="_blank" rel="noopener">Telegram</a>
-          <a href="https://wa.me/79029492730" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://t.me/DmitryFoxKids" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+            <span aria-hidden="true">✈</span> Telegram
+          </a>
+          <a href="https://wa.me/79029492730" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <span aria-hidden="true">✆</span> WhatsApp
+          </a>
         </div>
       </div>
     </div>
   </footer>
 
   <!-- Лайтбокс -->
-  <div class="lightbox" hidden aria-hidden="true">
-    <button class="lb-close" type="button" aria-label="Закрыть">×</button>
-    <img class="lb-img" alt="">
+  <div class="lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true">
+    <button class="lb-close" type="button" aria-label="Закрыть просмотр">✕</button>
+    <div class="lb-content">
+      <img class="lb-img" alt="" />
+      <p class="lb-caption"></p>
+    </div>
   </div>
 
-  <script>
-    // Галерея
-    var galleryGrid = document.getElementById('gallery-grid');
-    var photos = [
-		// Формат: "имя-файла.jpg"
-		"IMG_01.jpg",
-		"IMG_02.jpg",
-		"IMG_03.jpg",
-		"IMG_04.jpg",
-		"IMG_05.jpg",
-		"IMG_06.jpg",
-		"IMG_07.jpg",
-		"IMG_08.jpg",
-		"IMG_09.jpg",
-		"IMG_10.jpg",
-		"IMG_11.jpg",
-		"IMG_12.jpg",
-		"IMG_13.jpg"
-	];
-
-    // Категории (по желанию, можно оставить пустыми)
-	var categories = {
-		  "IMG_04.jpg": "swing", 
-		  "IMG_05.jpg": "swing",
-		  "IMG_03.jpg": "macrame",
-		  "IMG_02.jpg": "embroidery",
-		  "IMG_07.jpg": "macrame",
-		  "IMG_06.jpg": "swing",
-		  "IMG_08.jpg": "embroidery",
-		  "IMG_09.jpg": "embroidery",
-		  "IMG_10.jpg": "macrame",
-		  "IMG_11.jpg": "macrame",
-		  "IMG_12.jpg": "macrame",
-		  "IMG_13.jpg": "macrame"
-	};
-
-    function buildGallery() {
-      if (!galleryGrid) return;
-      photos.forEach(function(filename) {
-        var link = document.createElement('a');
-        link.className = 'gitem';
-        link.setAttribute('href', '/assets/img/works/' + filename);
-        link.setAttribute('role', 'listitem');
-        link.setAttribute('data-category', categories[filename] || 'other');
-        var img = document.createElement('img');
-        img.src = '/assets/img/works/' + filename;
-        img.alt = 'Ручная работа: ' + filename.replace('.jpg', '').replace(/_/g, ' ');
-        img.loading = 'lazy';
-        img.decoding = 'async';
-        link.appendChild(img);
-        galleryGrid.appendChild(link);
-      });
-    }
-
-    // Лайтбокс
-    var lb = document.querySelector('.lightbox');
-    var lbImg = document.querySelector('.lb-img');
-    var closeBtn = document.querySelector('.lb-close');
-
-    function openLightbox(src, alt) {
-      lb.hidden = false;
-      lb.setAttribute('aria-hidden', 'false');
-      lbImg.src = src;
-      lbImg.alt = alt || 'Фото работы';
-      document.body.style.overflow = 'hidden';
-    }
-    function closeLightbox() {
-      lb.hidden = true;
-      lb.setAttribute('aria-hidden', 'true');
-      lbImg.src = '';
-      document.body.style.overflow = '';
-    }
-    closeBtn.onclick = closeLightbox;
-    lb.onclick = function(e) { if (e.target === lb) closeLightbox(); };
-    document.onkeydown = function(e) { if (e.key === 'Escape' && !lb.hidden) closeLightbox(); };
-
-    // Фильтр
-    var filterBtns = document.querySelectorAll('.filter-btn');
-    filterBtns.forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        filterBtns.forEach(function(b) { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
-        btn.classList.add('active');
-        btn.setAttribute('aria-selected', 'true');
-        var filter = btn.getAttribute('data-filter');
-        galleryGrid.querySelectorAll('.gitem').forEach(function(item) {
-          if (filter === 'all' || item.getAttribute('data-category') === filter) item.removeAttribute('hidden');
-          else item.setAttribute('hidden', '');
-        });
-      });
-    });
-
-    // Запуск
-    buildGallery();
-    galleryGrid.addEventListener('click', function(e) {
-      var link = e.target.closest('.gitem');
-      if (link) {
-        e.preventDefault();
-        var img = link.querySelector('img');
-        openLightbox(link.getAttribute('href'), img ? img.alt : '');
-      }
-    });
-
-    // Анимация появления
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.card, .process-step, .review-card, .about-stats, .contact-form').forEach(function(el) {
-      el.classList.add('fade-up');
-      observer.observe(el);
-    });
-  </script>
+  <script src="/assets/js/script.js" defer></script>
 </body>
 </html>
