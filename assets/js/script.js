@@ -232,10 +232,11 @@
   }
 
   // --- 5. Форма ---
+var contactForm = document.querySelector('#contactForm');
+
 if (contactForm) {
+  // Защита от спама (honeypot)
   var honeypot = contactForm.querySelector('input[name="bot-field"]');
-  
-  // Защита от спама
   if (honeypot) {
     contactForm.addEventListener('submit', function(e) {
       if (honeypot.value) {
@@ -245,37 +246,36 @@ if (contactForm) {
     });
   }
 
-  // Для GitHub Pages (без Netlify) - показываем сообщение
-  if (!contactForm.hasAttribute('data-netlify')) {
-    contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      var btn = contactForm.querySelector('button[type="submit"]');
-      var original = btn.innerHTML;
-      btn.innerHTML = '✅ Отправлено!';
-      btn.disabled = true;
-      btn.style.opacity = '0.7';
+  // Обработка отправки формы
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
 
-      var name = contactForm.querySelector('input[name="name"]');
-      var contact = contactForm.querySelector('input[name="contact"]');
-      var consent = contactForm.querySelector('input[name="consent"]');
+    var btn = contactForm.querySelector('button[type="submit"]');
+    var original = btn.innerHTML;
+    var name = contactForm.querySelector('input[name="name"]');
+    var contact = contactForm.querySelector('input[name="contact"]');
+    var consent = contactForm.querySelector('input[name="consent"]');
 
-      if (!name.value.trim() || !contact.value.trim() || !consent.checked) {
-        alert('Пожалуйста, заполните все обязательные поля.');
-        btn.innerHTML = original;
-        btn.disabled = false;
-        btn.style.opacity = '1';
-        return;
-      }
+    // Проверка обязательных полей
+    if (!name.value.trim() || !contact.value.trim() || !consent.checked) {
+      alert('Пожалуйста, заполните все обязательные поля.');
+      return;
+    }
 
-      setTimeout(function() {
-        alert('✅ Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
-        contactForm.reset();
-        btn.innerHTML = original;
-        btn.disabled = false;
-        btn.style.opacity = '1';
-      }, 1000);
-    });
-  }
+    // Меняем кнопку
+    btn.innerHTML = '✅ Отправлено!';
+    btn.disabled = true;
+    btn.style.opacity = '0.7';
+
+    // Показываем сообщение и очищаем форму
+    setTimeout(function() {
+      alert('✅ Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
+      contactForm.reset();
+      btn.innerHTML = original;
+      btn.disabled = false;
+      btn.style.opacity = '1';
+    }, 800);
+  });
 }
 
   // --- 6. Защита ---
