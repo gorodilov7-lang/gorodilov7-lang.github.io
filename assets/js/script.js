@@ -17,6 +17,7 @@
   var lbCaption = document.querySelector('.lb-caption');
   var closeBtn = document.querySelector('.lb-close');
   var contactForm = document.querySelector('.contact-form');
+  var lastFocusedElement = null;
 
   // --- 1. Мобильное меню ---
   if (burger && navLinks) {
@@ -60,17 +61,18 @@
   if (galleryGrid) {
     var photoList = [
       { id: 'IMG_01', category: 'macrame', title: 'Макраме панно' },
-      { id: 'IMG_02', category: 'embroidery', title: 'Вышивка ручной работы' },
-      { id: 'IMG_03', category: 'swing', title: 'Подвесные качели' },
+      { id: 'IMG_02', category: 'embroidery', title: 'Декор ручной работы' },
+      { id: 'IMG_05', category: 'swing', title: 'Подвесные качели' },
       { id: 'IMG_04', category: 'swing', title: 'Качели интерьерные' },
-      { id: 'IMG_05', category: 'macrame', title: 'Подвесное кашпо' },
-      { id: 'IMG_06', category: 'embroidery', title: 'Вышивка монограмма' },
+      { id: 'IMG_08', category: 'embroidery', title: 'Мандала' },
       { id: 'IMG_07', category: 'macrame', title: 'Шторы макраме' },
-      { id: 'IMG_08', category: 'embroidery', title: 'Декоративная вышивка' },
+      { id: 'IMG_13', category: 'embroidery', title: 'Декоративное панно' },
+      { id: 'IMG_03', category: 'macrame', title: 'Шторы макраме' },
+      { id: 'IMG_10', category: 'embroidery', title: 'Декоративное панно' },
       { id: 'IMG_09', category: 'macrame', title: 'Декор стены' },
-      { id: 'IMG_10', category: 'swing', title: 'Лонграйдер' },
+      { id: 'IMG_06', category: 'swing', title: 'Лонграйдер' },
       { id: 'IMG_11', category: 'macrame', title: 'Панно крупное' },
-      { id: 'IMG_12', category: 'embroidery', title: 'Картина вышивка' }
+      { id: 'IMG_12', category: 'embroidery', title: 'Картина декор' }
     ];
 
     galleryGrid.innerHTML = '';
@@ -139,6 +141,7 @@
     // --- Лайтбокс ---
     function openLightbox(src, alt, title) {
       if (!lightbox || !lbImg) return;
+      lastFocusedElement = document.activeElement;
       lbImg.src = src;
       lbImg.alt = alt || title || 'Фото';
       if (lbCaption) lbCaption.textContent = title || alt || '';
@@ -157,6 +160,11 @@
         lightbox.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
         if (lbCaption) lbCaption.textContent = '';
+        // Возвращаем фокус на элемент, который открыл лайтбокс
+        if (lastFocusedElement) {
+          lastFocusedElement.focus();
+          lastFocusedElement = null;
+        }
       }, 300);
     }
 
@@ -285,6 +293,7 @@
     });
   }
 
+  // Исправленная функция sanitizeUrlParams
   (function sanitizeUrlParams() {
     var url = new URL(window.location.href);
     var params = url.searchParams;
@@ -292,8 +301,11 @@
     
     params.forEach(function(value, key) {
       if (value.includes('<') || value.includes('>') || value.includes('"') || value.includes("'")) {
-        hasXss = true;
-        params.set(key, sanitizeInput(value));
+        var sanitized = sanitizeInput(value);
+        if (sanitized !== value) {
+          params.set(key, sanitized);
+          hasXss = true;
+        }
       }
     });
     
