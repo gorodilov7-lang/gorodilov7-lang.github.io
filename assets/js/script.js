@@ -232,48 +232,51 @@
   }
 
   // --- 5. Форма ---
-  if (contactForm) {
-    var honeypot = contactForm.querySelector('input[name="bot-field"]');
-    if (honeypot) {
-      contactForm.addEventListener('submit', function(e) {
-        if (honeypot.value) {
-          e.preventDefault();
-          return;
-        }
-      });
-    }
-
-    if (!contactForm.hasAttribute('data-netlify')) {
-      contactForm.addEventListener('submit', function(e) {
+if (contactForm) {
+  var honeypot = contactForm.querySelector('input[name="bot-field"]');
+  
+  // Защита от спама
+  if (honeypot) {
+    contactForm.addEventListener('submit', function(e) {
+      if (honeypot.value) {
         e.preventDefault();
-        var btn = contactForm.querySelector('button[type="submit"]');
-        var original = btn.innerHTML;
-        btn.innerHTML = '<span class="btn-icon" aria-hidden="true">✓</span> Отправлено!';
-        btn.disabled = true;
-        btn.style.opacity = '0.7';
-
-        var name = contactForm.querySelector('input[name="name"]');
-        var contact = contactForm.querySelector('input[name="contact"]');
-        var consent = contactForm.querySelector('input[name="consent"]');
-
-        if (!name.value.trim() || !contact.value.trim() || !consent.checked) {
-          alert('Пожалуйста, заполните все обязательные поля.');
-          btn.innerHTML = original;
-          btn.disabled = false;
-          btn.style.opacity = '1';
-          return;
-        }
-
-        setTimeout(function() {
-          alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
-          contactForm.reset();
-          btn.innerHTML = original;
-          btn.disabled = false;
-          btn.style.opacity = '1';
-        }, 1000);
-      });
-    }
+        return;
+      }
+    });
   }
+
+  // Для GitHub Pages (без Netlify) - показываем сообщение
+  if (!contactForm.hasAttribute('data-netlify')) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = contactForm.querySelector('button[type="submit"]');
+      var original = btn.innerHTML;
+      btn.innerHTML = '✅ Отправлено!';
+      btn.disabled = true;
+      btn.style.opacity = '0.7';
+
+      var name = contactForm.querySelector('input[name="name"]');
+      var contact = contactForm.querySelector('input[name="contact"]');
+      var consent = contactForm.querySelector('input[name="consent"]');
+
+      if (!name.value.trim() || !contact.value.trim() || !consent.checked) {
+        alert('Пожалуйста, заполните все обязательные поля.');
+        btn.innerHTML = original;
+        btn.disabled = false;
+        btn.style.opacity = '1';
+        return;
+      }
+
+      setTimeout(function() {
+        alert('✅ Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
+        contactForm.reset();
+        btn.innerHTML = original;
+        btn.disabled = false;
+        btn.style.opacity = '1';
+      }, 1000);
+    });
+  }
+}
 
   // --- 6. Защита ---
   function sanitizeInput(value) {
