@@ -16,8 +16,10 @@
   var lbImg = document.querySelector('.lb-img');
   var lbCaption = document.querySelector('.lb-caption');
   var closeBtn = document.querySelector('.lb-close');
-  var contactForm = document.querySelector('.contact-form');
+  var contactForm = document.getElementById('contactForm');
   var lastFocusedElement = null;
+  var cookieBanner = document.getElementById('cookieBanner');
+  var cookieAccept = document.getElementById('cookieAccept');
 
   // --- 1. Мобильное меню ---
   if (burger && navLinks) {
@@ -73,6 +75,16 @@
       { id: 'IMG_06', category: 'swing', title: 'Лонграйдер' },
       { id: 'IMG_11', category: 'macrame', title: 'Панно крупное' },
       { id: 'IMG_12', category: 'embroidery', title: 'Картина декор' }
+	  { id: 'IMG_13', category: 'embroidery', title: 'Картина декор' }
+	  { id: 'IMG_14', category: 'embroidery', title: 'Картина декор' }
+	  { id: 'IMG_15', category: 'embroidery', title: 'Картина декор' }
+	  { id: 'IMG_16', category: 'embroidery', title: 'Картина декор' }
+	  { id: 'IMG_17', category: 'embroidery', title: 'Картина декор' }
+	  { id: 'IMG_18', category: 'embroidery', title: 'Картина декор' }
+	  { id: 'IMG_19', category: 'embroidery', title: 'Картина декор' }
+	  { id: 'IMG_20', category: 'embroidery', title: 'Картина декор' }
+	  { id: 'IMG_21', category: 'embroidery', title: 'Картина декор' }
+	  { id: 'IMG_22', category: 'embroidery', title: 'Картина декор' }
     ];
 
     galleryGrid.innerHTML = '';
@@ -102,7 +114,7 @@
       img.decoding = 'async';
       
       img.onerror = function() {
-        this.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300"%3E%3Crect width="400" height="300" fill="%23F8F5F2"/%3E%3Ctext x="50%25" y="45%25" font-family="Space Grotesk" font-size="24" fill="%23FF6B35" text-anchor="middle"%3ESilkSoul%3C/text%3E%3Ctext x="50%25" y="65%25" font-family="Outfit" font-size="14" fill="%236B5F55" text-anchor="middle"%3E' + photo.title + '%3C/text%3E%3C/svg%3E';
+        this.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300"%3E%3Crect width="400" height="300" fill="%23F8F5F2"/%3E%3Ctext x="50%25" y="45%25" font-family="Space Grotesk" font-size="24" fill="%23FF6B35" text-anchor="middle"%3EPremiumDecor%3C/text%3E%3Ctext x="50%25" y="65%25" font-family="Outfit" font-size="14" fill="%236B5F55" text-anchor="middle"%3E' + photo.title + '%3C/text%3E%3C/svg%3E';
       };
 
       var button = document.createElement('button');
@@ -160,7 +172,6 @@
         lightbox.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
         if (lbCaption) lbCaption.textContent = '';
-        // Возвращаем фокус на элемент, который открыл лайтбокс
         if (lastFocusedElement) {
           lastFocusedElement.focus();
           lastFocusedElement = null;
@@ -231,60 +242,70 @@
     }
   }
 
-  // --- 5. Форма ---
-var contactForm = document.querySelector('#contactForm');
+  // --- 5. Форма (обработка без Netlify) ---
+  if (contactForm) {
+    // Проверка honeypot (антиспам)
+    var honeypot = contactForm.querySelector('input[name="bot-field"]');
+    if (honeypot) {
+      contactForm.addEventListener('submit', function(e) {
+        if (honeypot.value) {
+          e.preventDefault();
+          return;
+        }
+      });
+    }
 
-if (contactForm) {
-  // Защита от спама (honeypot)
-  var honeypot = contactForm.querySelector('input[name="bot-field"]');
-  if (honeypot) {
+    // Обработка отправки
     contactForm.addEventListener('submit', function(e) {
-      if (honeypot.value) {
-        e.preventDefault();
+      e.preventDefault();
+
+      var btn = contactForm.querySelector('button[type="submit"]');
+      var original = btn.innerHTML;
+      var name = contactForm.querySelector('input[name="name"]');
+      var contact = contactForm.querySelector('input[name="contact"]');
+      var consent = contactForm.querySelector('input[name="consent"]');
+
+      // Валидация
+      if (!name.value.trim() || !contact.value.trim() || !consent.checked) {
+        alert('Пожалуйста, заполните все обязательные поля.');
         return;
       }
+
+      btn.innerHTML = '✅ Отправлено!';
+      btn.disabled = true;
+      btn.style.opacity = '0.7';
+
+      setTimeout(function() {
+        alert('✅ Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
+        contactForm.reset();
+        btn.innerHTML = original;
+        btn.disabled = false;
+        btn.style.opacity = '1';
+      }, 800);
     });
   }
 
-  // Обработка отправки формы
-  contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    var btn = contactForm.querySelector('button[type="submit"]');
-    var original = btn.innerHTML;
-    var name = contactForm.querySelector('input[name="name"]');
-    var contact = contactForm.querySelector('input[name="contact"]');
-    var consent = contactForm.querySelector('input[name="consent"]');
-
-    // Проверка обязательных полей
-    if (!name.value.trim() || !contact.value.trim() || !consent.checked) {
-      alert('Пожалуйста, заполните все обязательные поля.');
-      return;
+  // --- 6. Cookie Consent ---
+  if (cookieBanner && cookieAccept) {
+    // Проверяем, согласился ли пользователь уже
+    if (localStorage.getItem('cookieConsent') === 'accepted') {
+      cookieBanner.style.display = 'none';
     }
 
-    // Меняем кнопку
-    btn.innerHTML = '✅ Отправлено!';
-    btn.disabled = true;
-    btn.style.opacity = '0.7';
+    cookieAccept.addEventListener('click', function() {
+      localStorage.setItem('cookieConsent', 'accepted');
+      cookieBanner.style.display = 'none';
+    });
+  }
 
-    // Показываем сообщение и очищаем форму
-    setTimeout(function() {
-      alert('✅ Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
-      contactForm.reset();
-      btn.innerHTML = original;
-      btn.disabled = false;
-      btn.style.opacity = '1';
-    }, 800);
-  });
-}
-
-  // --- 6. Защита ---
+  // --- 7. Защита от XSS ---
   function sanitizeInput(value) {
     var div = document.createElement('div');
     div.textContent = value;
     return div.innerHTML;
   }
 
+  // Санитизация полей формы
   if (contactForm) {
     contactForm.addEventListener('submit', function() {
       var inputs = contactForm.querySelectorAll('input, textarea');
@@ -296,7 +317,7 @@ if (contactForm) {
     });
   }
 
-  // Исправленная функция sanitizeUrlParams
+  // Санитизация URL-параметров
   (function sanitizeUrlParams() {
     var url = new URL(window.location.href);
     var params = url.searchParams;
@@ -318,6 +339,5 @@ if (contactForm) {
     }
   })();
 
-  console.log('✅ SilkSoul: сайт загружен и защищен');
-
+  console.log('✅ Premium Decor: сайт загружен и защищен');
 })();

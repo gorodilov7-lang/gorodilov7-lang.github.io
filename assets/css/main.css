@@ -1464,3 +1464,169 @@ body::before {
   z-index: -1;
   pointer-events: none;
 }
+
+/* =========================================
+   21. Дополнительные стили для перевода (Translate)
+   ========================================= */
+.translate {
+  display: block;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  opacity: 0.7;
+  margin-top: 2px;
+  font-family: var(--font-body);
+}
+
+.hero-badge .translate {
+  display: inline-block;
+  font-size: 0.55rem;
+  margin-left: 6px;
+  opacity: 0.6;
+}
+
+.section-title .translate {
+  font-size: 0.7rem;
+  margin-top: 4px;
+}
+
+.about-lead .translate {
+  font-size: 0.7rem;
+  margin-top: 2px;
+}
+
+.footer-tagline .translate {
+  display: inline-block;
+  font-size: 0.7rem;
+  margin-left: 6px;
+}
+
+/* =========================================
+   22. Cookie Consent Banner (куки-баннер)
+   ========================================= */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--border-light);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  z-index: 999;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+}
+
+.cookie-banner p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  flex: 1;
+  min-width: 200px;
+}
+
+.cookie-banner .translate {
+  display: block;
+  font-size: 0.65rem;
+  opacity: 0.6;
+  margin-top: 2px;
+}
+
+.cookie-accept {
+  padding: 8px 24px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+/* =========================================
+   23. Информация об ИП в футере
+   ========================================= */
+.footer-owner {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+  line-height: 1.4;
+  opacity: 0.7;
+}
+
+.footer-links a {
+  font-size: 0.8rem;
+}
+
+/* =========================================
+   24. Адаптив для куки-баннера
+   ========================================= */
+@media (max-width: 768px) {
+  .cookie-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 16px 20px;
+  }
+  .cookie-accept {
+    width: 100%;
+  }
+}
+
+/* =========================================
+   25. Увеличенный куки-баннер
+   ========================================= */
+.cookie-banner {
+  padding: 24px 32px !important;          /* увеличили отступы */
+  font-size: 1.1rem !important;           /* увеличили шрифт */
+  gap: 20px !important;
+}
+
+.cookie-banner p {
+  font-size: 1.05rem !important;
+  line-height: 1.5 !important;
+}
+
+.cookie-banner .translate {
+  font-size: 0.8rem !important;
+}
+
+.cookie-accept {
+  padding: 12px 36px !important;
+  font-size: 1rem !important;
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 768px) {
+  .cookie-banner {
+    padding: 20px 16px !important;
+    font-size: 1rem !important;
+  }
+  .cookie-banner p {
+    font-size: 0.95rem !important;
+  }
+  .cookie-accept {
+    padding: 10px 24px !important;
+    font-size: 0.95rem !important;
+  }
+}
+
+/* =========================================
+   26. Email в футере
+   ========================================= */
+.footer-email {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+.footer-email a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.footer-email a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
