@@ -61,30 +61,30 @@
 
   // --- 4. Галерея ---
   if (galleryGrid) {
+    // Уникальные названия для всех фото, дубликат IMG_13 удалён
     var photoList = [
-      { id: 'IMG_01', category: 'macrame', title: 'Макраме панно' },
-      { id: 'IMG_02', category: 'embroidery', title: 'Декор ручной работы' },
-      { id: 'IMG_05', category: 'swing', title: 'Подвесные качели' },
-      { id: 'IMG_04', category: 'swing', title: 'Качели интерьерные' },
-      { id: 'IMG_08', category: 'embroidery', title: 'Мандала' },
-      { id: 'IMG_07', category: 'macrame', title: 'Шторы макраме' },
-      { id: 'IMG_13', category: 'embroidery', title: 'Декоративное панно' },
-      { id: 'IMG_03', category: 'macrame', title: 'Шторы макраме' },
-      { id: 'IMG_10', category: 'embroidery', title: 'Декоративное панно' },
-      { id: 'IMG_09', category: 'macrame', title: 'Декор стены' },
-      { id: 'IMG_06', category: 'swing', title: 'Лонграйдер' },
-      { id: 'IMG_11', category: 'macrame', title: 'Панно крупное' },
-      { id: 'IMG_12', category: 'embroidery', title: 'Картина декор' },
-	  { id: 'IMG_13', category: 'embroidery', title: 'Картина декор' },
-	  { id: 'IMG_14', category: 'embroidery', title: 'Картина декор' },
-	  { id: 'IMG_15', category: 'embroidery', title: 'Картина декор' },
-	  { id: 'IMG_16', category: 'embroidery', title: 'Картина декор' },
-	  { id: 'IMG_17', category: 'embroidery', title: 'Картина декор' },
-	  { id: 'IMG_18', category: 'embroidery', title: 'Картина декор' },
-	  { id: 'IMG_19', category: 'embroidery', title: 'Картина декор' },
-	  { id: 'IMG_20', category: 'embroidery', title: 'Картина декор' },
-	  { id: 'IMG_21', category: 'embroidery', title: 'Картина декор' },
-	  { id: 'IMG_22', category: 'embroidery', title: 'Картина декор' }
+      { id: 'IMG_01', category: 'macrame', title: 'Макраме панно', price: '' },
+      { id: 'IMG_02', category: 'embroidery', title: 'Декор ручной работы', price: '' },
+      { id: 'IMG_05', category: 'swing', title: 'Подвесные качели', price: '' },
+      { id: 'IMG_04', category: 'swing', title: 'Качели интерьерные', price: '' },
+      { id: 'IMG_08', category: 'embroidery', title: 'Мандала', price: '' },
+      { id: 'IMG_07', category: 'macrame', title: 'Шторы макраме', price: '' },
+      { id: 'IMG_03', category: 'macrame', title: 'Декор макраме', price: '' },
+      { id: 'IMG_10', category: 'embroidery', title: 'Декоративное панно', price: '' },
+      { id: 'IMG_09', category: 'macrame', title: 'Декор дивана', price: '' },
+      { id: 'IMG_06', category: 'swing', title: 'Лонграйдер', price: '' },
+      { id: 'IMG_11', category: 'macrame', title: 'Панно крупное', price: '' },
+      { id: 'IMG_12', category: 'embroidery', title: 'Декор стены', price: '' },
+      // Новые фото — уникальные названия, дубликатов нет
+      { id: 'IMG_14', category: 'embroidery', title: 'Уютные люльки', price: '' },
+      { id: 'IMG_15', category: 'embroidery', title: 'Люльки и корзинки', price: '' },
+      { id: 'IMG_16', category: 'embroidery', title: 'Монограмма', price: '' },
+      { id: 'IMG_17', category: 'embroidery', title: 'Детский уголок', price: '' },
+      { id: 'IMG_18', category: 'embroidery', title: 'Молочная буренка', price: '' },
+      { id: 'IMG_19', category: 'embroidery', title: 'Детский уголок, "Счастливая Му-Му"', price: '' },
+      { id: 'IMG_20', category: 'embroidery', title: 'Пудровый зайчик', price: '' },
+      { id: 'IMG_21', category: 'embroidery', title: 'Северное спокойствие', price: '' },
+      { id: 'IMG_22', category: 'embroidery', title: 'Колыбель-мечта', price: '' }
     ];
 
     galleryGrid.innerHTML = '';
@@ -98,11 +98,11 @@
       item.setAttribute('tabindex', '0');
 
       var picture = document.createElement('picture');
-      
+
       var sourceWebp = document.createElement('source');
       sourceWebp.srcset = 'assets/img/works/' + photo.id + '.webp';
       sourceWebp.type = 'image/webp';
-      
+
       var sourceJpg = document.createElement('source');
       sourceJpg.srcset = 'assets/img/works/' + photo.id + '.jpg';
       sourceJpg.type = 'image/jpeg';
@@ -112,7 +112,7 @@
       img.alt = photo.title;
       img.loading = 'lazy';
       img.decoding = 'async';
-      
+
       img.onerror = function() {
         this.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300"%3E%3Crect width="400" height="300" fill="%23F8F5F2"/%3E%3Ctext x="50%25" y="45%25" font-family="Space Grotesk" font-size="24" fill="%23FF6B35" text-anchor="middle"%3EPremiumDecor%3C/text%3E%3Ctext x="50%25" y="65%25" font-family="Outfit" font-size="14" fill="%236B5F55" text-anchor="middle"%3E' + photo.title + '%3C/text%3E%3C/svg%3E';
       };
@@ -322,7 +322,7 @@
     var url = new URL(window.location.href);
     var params = url.searchParams;
     var hasXss = false;
-    
+
     params.forEach(function(value, key) {
       if (value.includes('<') || value.includes('>') || value.includes('"') || value.includes("'")) {
         var sanitized = sanitizeInput(value);
@@ -332,7 +332,7 @@
         }
       }
     });
-    
+
     if (hasXss) {
       url.search = params.toString();
       window.history.replaceState({}, '', url.toString());
