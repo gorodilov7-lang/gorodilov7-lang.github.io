@@ -10,7 +10,6 @@
   --text-muted: #6B5F55;
   --text-light: #9A8B7E;
   
-  /* Beige Buttons */
   --beige: #D4C5B2;
   --beige-dark: #C4B5A2;
   --beige-light: #E8DDD0;
@@ -509,7 +508,6 @@ a {
   direction: rtl;
 }
 
-/* ФОТО - ТОЧНО ТАКОЙ ЖЕ РАЗМЕР КАК КАРТОЧКА С ТЕКСТОМ */
 .about-media {
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -526,7 +524,6 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Высота автоматически равна текстовой карточке через align-items: stretch */
   min-height: 300px;
 }
 
@@ -547,7 +544,6 @@ a {
   transform: scale(1.05);
 }
 
-/* ТЕКСТОВАЯ КАРТОЧКА - ТАКОЙ ЖЕ РАЗМЕР КАК ФОТО */
 .about-text {
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(12px);
@@ -1234,7 +1230,7 @@ a {
 }
 
 /* =========================================
-   19. Responsive
+   19. Responsive (Desktop-first, затем Mobile)
    ========================================= */
 @media (max-width: 1024px) {
   .hero-grid { gap: 32px; }
@@ -1248,8 +1244,9 @@ a {
   }
 }
 
+/* --- Все мобильные стили (768px и меньше) --- */
 @media (max-width: 768px) {
-  /* Mobile Menu */
+  /* Burger Menu */
   .burger-menu { display: block; }
 
   .nav-links {
@@ -1274,7 +1271,7 @@ a {
   .nav-links a { font-size: 1.1rem; }
   .nav-cta { display: none; }
 
-  /* Hero Mobile */
+  /* Hero */
   .hero {
     min-height: auto;
     padding: 40px 0;
@@ -1302,7 +1299,7 @@ a {
     font-size: 1.2rem;
   }
 
-  /* About Mobile - фото и текст одной высоты */
+  /* About */
   .about-grid {
     grid-template-columns: 1fr;
     gap: 32px;
@@ -1329,26 +1326,30 @@ a {
     transform: none;
   }
 
-  /* Catalog Mobile */
+  /* Catalog */
   .catalog-grid { 
     grid-template-columns: 1fr; 
     max-width: 400px; 
     margin: 0 auto; 
   }
+  .card-image {
+    height: 200px !important;
+  }
 
-  /* Gallery Mobile */
+  /* Gallery */
   .gallery-filters { gap: 8px; }
   .filter-btn { 
     padding: 8px 16px; 
     font-size: 0.8rem; 
+    min-height: 36px !important;
   }
   .gallery-grid { 
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); 
+    grid-template-columns: repeat(2, 1fr); 
     gap: 12px; 
   }
   .gitem { height: 200px; }
 
-  /* Contact Mobile */
+  /* Contact */
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 32px;
@@ -1361,18 +1362,23 @@ a {
   
   .form-row { grid-template-columns: 1fr; }
 
-  /* Footer Mobile */
+  /* Footer */
   .footer-grid {
     flex-direction: column;
     text-align: center;
-    gap: 32px;
+    gap: 24px;
+    align-items: center;
   }
   .footer-links a,
-  .social-links { 
-    justify-content: center; 
+  .social-links a {
+    display: inline-block;
+    margin: 4px 8px;
+  }
+  .footer-owner {
+    font-size: 0.7rem;
   }
 
-  /* Lightbox Mobile */
+  /* Lightbox */
   .lightbox { padding: 20px; }
   .lb-close { 
     top: 16px; 
@@ -1380,7 +1386,7 @@ a {
     font-size: 2.2rem; 
   }
   
-  /* Back to Top Mobile */
+  /* Back to Top */
   .back-to-top { 
     bottom: 20px; 
     right: 20px; 
@@ -1393,8 +1399,62 @@ a {
   body {
     background-attachment: scroll !important;
   }
+
+  /* Куки-баннер (мобильная версия) */
+  .cookie-banner {
+    padding: 16px 20px;
+    font-size: 0.9rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+  .cookie-accept {
+    width: 100%;
+    padding: 12px;
+  }
+
+  /* Бейджи */
+  .card-badge {
+    font-size: 0.6rem !important;
+    padding: 2px 10px !important;
+  }
+
+  /* Отзывы */
+  .reviews-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .review-card {
+    padding: 20px;
+  }
+
+  /* Увеличенные области клика */
+  .btn,
+  .nav-cta,
+  .filter-btn,
+  .card-link,
+  .contact-link,
+  .gitem-button {
+    min-height: 48px;
+    min-width: 48px;
+  }
+
+  /* Убираем лишние отступы у секций */
+  .about,
+  .catalog,
+  .gallery,
+  .reviews,
+  .contact {
+    padding: 40px 0;
+  }
+
+  .hero {
+    padding: 20px 0;
+    min-height: 90vh;
+  }
 }
 
+/* --- Очень маленькие экраны (480px и меньше) --- */
 @media (max-width: 480px) {
   .container { padding: 0 16px; }
   .hero-title { font-size: 1.5rem; }
@@ -1408,10 +1468,10 @@ a {
   }
   .section-title { font-size: 1.6rem; }
   .gallery-grid { 
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
+    grid-template-columns: 1fr; 
     gap: 8px; 
   }
-  .gitem { height: 160px; }
+  .gitem { height: 260px; }
   .review-card { padding: 20px; }
   .hero-stats { gap: 16px; }
   .stat-number { font-size: 1.1rem; }
@@ -1433,6 +1493,22 @@ a {
   }
 }
 
+/* --- Для экранов уже 380px и меньше --- */
+@media (max-width: 380px) {
+  .hero-title {
+    font-size: 1.5rem !important;
+  }
+  .hero-content {
+    padding: 16px 12px !important;
+  }
+  .stat-number {
+    font-size: 1.1rem !important;
+  }
+  .gitem {
+    height: 180px !important;
+  }
+}
+
 /* =========================================
    20. Full Page Background Image
    ========================================= */
@@ -1443,7 +1519,6 @@ html, body {
 }
 
 body {
-  /* Рекомендуется использовать WebP для лучшей производительности */
   background-image: url('../img/works/IMG_04.jpg') !important;
   background-size: cover !important;
   background-position: center !important;
@@ -1452,7 +1527,6 @@ body {
   background-color: transparent !important;
 }
 
-/* Затемнение для фона */
 body::before {
   content: '';
   position: fixed;
@@ -1513,19 +1587,21 @@ body::before {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   border-top: 1px solid var(--border-light);
-  padding: 16px 24px;
+  padding: 24px 32px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 20px;
   z-index: 999;
   box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+  font-size: 1.1rem;
 }
 
 .cookie-banner p {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 1.05rem;
+  line-height: 1.5;
   color: var(--text-muted);
   flex: 1;
   min-width: 200px;
@@ -1533,14 +1609,14 @@ body::before {
 
 .cookie-banner .translate {
   display: block;
-  font-size: 0.65rem;
+  font-size: 0.8rem;
   opacity: 0.6;
   margin-top: 2px;
 }
 
 .cookie-accept {
-  padding: 8px 24px;
-  font-size: 0.8rem;
+  padding: 12px 36px;
+  font-size: 1rem;
   white-space: nowrap;
 }
 
@@ -1560,59 +1636,7 @@ body::before {
 }
 
 /* =========================================
-   24. Адаптив для куки-баннера
-   ========================================= */
-@media (max-width: 768px) {
-  .cookie-banner {
-    flex-direction: column;
-    text-align: center;
-    padding: 16px 20px;
-  }
-  .cookie-accept {
-    width: 100%;
-  }
-}
-
-/* =========================================
-   25. Увеличенный куки-баннер
-   ========================================= */
-.cookie-banner {
-  padding: 24px 32px !important;          /* увеличили отступы */
-  font-size: 1.1rem !important;           /* увеличили шрифт */
-  gap: 20px !important;
-}
-
-.cookie-banner p {
-  font-size: 1.05rem !important;
-  line-height: 1.5 !important;
-}
-
-.cookie-banner .translate {
-  font-size: 0.8rem !important;
-}
-
-.cookie-accept {
-  padding: 12px 36px !important;
-  font-size: 1rem !important;
-}
-
-/* Адаптив для мобильных */
-@media (max-width: 768px) {
-  .cookie-banner {
-    padding: 20px 16px !important;
-    font-size: 1rem !important;
-  }
-  .cookie-banner p {
-    font-size: 0.95rem !important;
-  }
-  .cookie-accept {
-    padding: 10px 24px !important;
-    font-size: 0.95rem !important;
-  }
-}
-
-/* =========================================
-   26. Email в футере
+   24. Email в футере
    ========================================= */
 .footer-email {
   font-size: 0.8rem;
@@ -1629,186 +1653,4 @@ body::before {
 .footer-email a:hover {
   color: var(--primary-dark);
   text-decoration: underline;
-}
-
-/* =========================================
-   27. Дополнительные улучшения для мобильных
-   ========================================= */
-
-/* Увеличиваем кликабельные области кнопок и ссылок */
-@media (max-width: 768px) {
-  .btn,
-  .nav-cta,
-  .filter-btn,
-  .card-link,
-  .contact-link,
-  .gitem-button {
-    min-height: 48px;
-    min-width: 48px;
-  }
-
-  /* Убираем лишние отступы у секций */
-  .about,
-  .catalog,
-  .gallery,
-  .reviews,
-  .contact {
-    padding: 40px 0 !important;
-  }
-
-  .hero {
-    padding: 20px 0 !important;
-    min-height: 90vh;
-  }
-
-  /* Герой: карточка на всю ширину, уменьшенный padding */
-  .hero-content {
-    padding: 24px 16px !important;
-    border-radius: 16px !important;
-  }
-
-  .hero-title {
-    font-size: 1.8rem !important;
-  }
-
-  .hero-subtitle {
-    font-size: 0.95rem !important;
-  }
-
-  .hero-stats {
-    gap: 16px !important;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .stat-item {
-    min-width: 70px;
-    text-align: center;
-  }
-
-  /* Галерея: 2 колонки на телефонах, 1 на очень маленьких */
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 12px !important;
-  }
-
-  .gitem {
-    height: 200px !important;
-  }
-
-  /* При 480px и меньше — 1 колонка */
-  @media (max-width: 480px) {
-    .gallery-grid {
-      grid-template-columns: 1fr !important;
-    }
-    .gitem {
-      height: 260px !important;
-    }
-  }
-
-  /* Карточки каталога */
-  .catalog-grid {
-    grid-template-columns: 1fr !important;
-    gap: 20px !important;
-  }
-
-  .card-image {
-    height: 200px !important;
-  }
-
-  /* Форма */
-  .contact-grid {
-    grid-template-columns: 1fr !important;
-    gap: 24px !important;
-  }
-
-  .contact-info,
-  .contact-form {
-    padding: 24px 16px !important;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr !important;
-    gap: 12px !important;
-  }
-
-  /* Футер */
-  .footer-grid {
-    flex-direction: column !important;
-    text-align: center !important;
-    gap: 24px !important;
-  }
-
-  .footer-links a,
-  .social-links a {
-    display: inline-block;
-    margin: 4px 8px;
-  }
-
-  .footer-owner {
-    font-size: 0.7rem !important;
-  }
-
-  /* Бейджи на карточках */
-  .card-badge {
-    font-size: 0.6rem !important;
-    padding: 2px 10px !important;
-  }
-
-  /* Отзывы */
-  .reviews-grid {
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
-  }
-
-  .review-card {
-    padding: 20px !important;
-  }
-
-  /* Кнопка "Наверх" */
-  .back-to-top {
-    width: 44px !important;
-    height: 44px !important;
-    font-size: 1.2rem !important;
-    bottom: 16px !important;
-    right: 16px !important;
-  }
-
-  /* Куки-баннер */
-  .cookie-banner {
-    padding: 16px !important;
-    font-size: 0.9rem !important;
-    flex-direction: column !important;
-    gap: 12px !important;
-  }
-  .cookie-accept {
-    width: 100% !important;
-    padding: 12px !important;
-  }
-
-  /* Фильтры галереи */
-  .gallery-filters {
-    gap: 6px !important;
-  }
-  .filter-btn {
-    padding: 6px 14px !important;
-    font-size: 0.75rem !important;
-    min-height: 36px !important;
-  }
-}
-
-/* Дополнительно: исправление для очень маленьких экранов */
-@media (max-width: 380px) {
-  .hero-title {
-    font-size: 1.5rem !important;
-  }
-  .hero-content {
-    padding: 16px 12px !important;
-  }
-  .stat-number {
-    font-size: 1.1rem !important;
-  }
-  .gitem {
-    height: 180px !important;
-  }
 }
