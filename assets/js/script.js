@@ -74,16 +74,16 @@
       { id: 'IMG_09', category: 'macrame', title: 'Декор стены' },
       { id: 'IMG_06', category: 'swing', title: 'Лонграйдер' },
       { id: 'IMG_11', category: 'macrame', title: 'Панно крупное' },
-      { id: 'IMG_12', category: 'embroidery', title: 'Картина декор' }
-	  { id: 'IMG_13', category: 'embroidery', title: 'Картина декор' }
-	  { id: 'IMG_14', category: 'embroidery', title: 'Картина декор' }
-	  { id: 'IMG_15', category: 'embroidery', title: 'Картина декор' }
-	  { id: 'IMG_16', category: 'embroidery', title: 'Картина декор' }
-	  { id: 'IMG_17', category: 'embroidery', title: 'Картина декор' }
-	  { id: 'IMG_18', category: 'embroidery', title: 'Картина декор' }
-	  { id: 'IMG_19', category: 'embroidery', title: 'Картина декор' }
-	  { id: 'IMG_20', category: 'embroidery', title: 'Картина декор' }
-	  { id: 'IMG_21', category: 'embroidery', title: 'Картина декор' }
+      { id: 'IMG_12', category: 'embroidery', title: 'Картина декор' },
+	  { id: 'IMG_13', category: 'embroidery', title: 'Картина декор' },
+	  { id: 'IMG_14', category: 'embroidery', title: 'Картина декор' },
+	  { id: 'IMG_15', category: 'embroidery', title: 'Картина декор' },
+	  { id: 'IMG_16', category: 'embroidery', title: 'Картина декор' },
+	  { id: 'IMG_17', category: 'embroidery', title: 'Картина декор' },
+	  { id: 'IMG_18', category: 'embroidery', title: 'Картина декор' },
+	  { id: 'IMG_19', category: 'embroidery', title: 'Картина декор' },
+	  { id: 'IMG_20', category: 'embroidery', title: 'Картина декор' },
+	  { id: 'IMG_21', category: 'embroidery', title: 'Картина декор' },
 	  { id: 'IMG_22', category: 'embroidery', title: 'Картина декор' }
     ];
 
